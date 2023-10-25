@@ -1,0 +1,29 @@
+52428242,,,,,Marbelys Calcines Avalo  ,marbelys.calcinesavalo@conduent.com,52258081,CSR,Avatar,Call Center,Ocoee,9.18.2023
+52430680,,,,,Lashell Johnson,lashell.johnson@conduent.com,52258081,CSR,Avatar,Call Center,Ocoee,9.18.2023
+52430592,,,,,Janett Perez  ,janett.perez@conduent.com,52258081,CSR,Avatar,Call Center,Ocoee,9.18.2023
+52430643,,,,,Carmen Chico  ,carmen.chico@conduent.com,52258081,CSR,Avatar,Call Center,Ocoee,9.18.2023
+52428225,,,,,Kisha Martin,kisha.martin@conduent.com,20709598,CSR,Avatar,Call Center,Ocoee,9.18.2023
+52428235,,,,,Vanessa Vidal,vanessa.vidal@conduent.com,20709598,CSR,Avatar,Call Center,Ocoee,9.18.2023
+52421328,,,,,Michael Nelson,michael.nelson@conduent.com,20825875,CSR,Avatar,Call Center,Ocoee,9.5.2023
+C5152752,,,,,Richard Williams,richard.williams@conduent.com,20825875,CSR,Avatar,Call Center,Ocoee,9.18.2023
+52430298,,,,,India McLean,india.mclean@conduent.com,20825875,CSR,Avatar,Call Center,Ocoee,9.18.2023
+52430287,,,,,Emari Taylor,emari.taylor@conduent.com,20825875,CSR,Avatar,Call Center,Ocoee,9.18.2023
+52429415,,,,,Pahola Duarte De Silva  ,pahola.duartedesilva@conduent.com,52220809,CSR,Avatar,Call Center,Ocoee,9.18.2023
+52428272,,,,,Marvalee Milligin,marvalee.milligin@conduent.com,52220809,CSR,Avatar,Call Center,Ocoee,9.18.2023
+52430299,,,,,Quame Robinson,quame.robinson@conduent.com,52220809,CSR,Avatar,Call Center,Ocoee,9.18.2023
+52430297,,,,,Alessandro Cappuccio  ,alessandro.cappuccio@conduent.com,52315093,CSR,Hogwarts,Call Center,Ocoee,9.18.2023
+52430303,,,,,Juliann Hugh,juliann.hugh@conduent.com,52315093,CSR,Hogwarts,Call Center,Ocoee,9.18.2023
+52429609,,,,,Albert Sanchez Araujo  ,albert.sanchezaraujo@conduent.com,52315093,CSR,Hogwarts,Call Center,Ocoee,9.18.2023
+52430596,,,,,Chassidy Robbins,chassidy.robbins@conduent.com,52363116,CSR,Hogwarts,Call Center,Ocoee,9.18.2023
+52430598,,,,,Brittany Taylor,brittany.taylor@conduent.com,52363116,CSR,Hogwarts,Call Center,Ocoee,9.18.2023
+52430586,,,,,Miaya Williams,miaya.williams@conduent.com,52363116,CSR,Hogwarts,Call Center,Ocoee,9.18.2023
+52430296,,,,,Gilbert Lowe,gilbert.lowe@conduent.com,52256071,CSR,Hogwarts,Call Center,Ocoee,9.18.2023
+52430589,,,,,Judith McNair,judith.mcnair@conduent.com,52256071,CSR,Hogwarts,Call Center,Ocoee,9.18.2023
+52429007,,,,,Martin Ortiz IV  ,martin.ortiziv@conduent.com,52256071,CSR,Hogwarts,Call Center,Ocoee,9.18.2023
+52424421,,,,,Aniyah Tolbert,aniyah.tolbert@conduent.com,20746004,CSR,Hogwarts,Call Center,Ocoee,9.5.2023
+52426856,,,,,Shedkara Bellune,shedkara.bellune@conduent.com,20746004,CSR,Hogwarts,Call Center,Ocoee,9.18.2023
+52429598,,,,,Noratiqua Badie,noratiqua.badie@conduent.com,20746004,CSR,Hogwarts,Call Center,Ocoee,9.18.2023
+52427901,,,,,Marquitta Brown,marquitta.brown@conduent.com,20746004,CSR,Hogwarts,Call Center,Ocoee,9.18.2023
+52430684,,,,,Christopher Clark,christopher.clark@conduent.com,20746004,CSR,Hogwarts,Call Center,Ocoee,9.18.2023
+52427753,,,,,Peter Mccabe,peter.mccabe@conduent.com,20746004,CSR,Hogwarts,Call Center,Ocoee,9.18.2023
+C5150397,,,,,Nicolas Herrera ,nicolas.herrera@conduent.com,52274923,CSR,Legacy,Call Center,Ocoee,2023-07-03 00:00:00

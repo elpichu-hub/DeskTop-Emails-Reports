@@ -1,0 +1,16 @@
+# Ignore PNG files
+*.png
+
+# Ignore JPG files
+*.jpg
+*.jpeg
+
+# Ignore the "dist" folders
+/dist/
+/build/
+/__pycache__/
+/Side By Sides/
+/data/
+/automated_emails/
+/.vscode/
+

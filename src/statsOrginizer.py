@@ -9,6 +9,7 @@ import re
 
 class App(QWidget):
 
+    # initialize the window and set its properties
     def __init__(self):
         super().__init__()
         self.title = 'Reports By Lazaro Gonzalez'
@@ -18,7 +19,9 @@ class App(QWidget):
         self.height = 700
         self.initUI()
         self.key = 'target'
+        self.key2_crypto = b'\\\x88\x0b\x08\xdd\r\xd6\x1e\xc2\x13\xec\x18\xadm)\x96'
 
+    # initialize the UI
     def initUI(self):
         self.setWindowTitle(self.title)
         self.setGeometry(self.left, self.top, self.width, self.height)
@@ -29,6 +32,7 @@ class App(QWidget):
 
         # Create a layout
         layout = QVBoxLayout()
+
 
         # Create a button and style it
         button1 = QPushButton(
@@ -48,12 +52,11 @@ class App(QWidget):
                 background-color: #2E7D32;
             }
         ''')
-
         # Set the cursor to a pointer when hovering the button
         button1.setCursor(Qt.PointingHandCursor)
-
         # Connect the button to the function that generates the statistics
         button1.clicked.connect(self.on_click_stats)
+       
 
         # Create a button and style it
         button2 = QPushButton('None Work Codes', self)
@@ -72,12 +75,11 @@ class App(QWidget):
                 background-color: #2E7D32;
             }
         ''')
-
         # Set the cursor to a pointer when hovering the button
         button2.setCursor(Qt.PointingHandCursor)
-
         # Connect the button to the function that generates the statistics
         button2.clicked.connect(self.non_work_report_click)
+
 
         # Create a button and style it
         button3 = QPushButton('Proponisi Stats', self)
@@ -96,12 +98,11 @@ class App(QWidget):
                 background-color: #2E7D32;
             }
         ''')
-
         # Set the cursor to a pointer when hovering the button
         button3.setCursor(Qt.PointingHandCursor)
-
         # Connect the button to the function that generates the statistics
         button3.clicked.connect(self.proponisi_report_click)
+
 
         # Create a button and style it
         button4 = QPushButton('Proponisi QA Stats', self)
@@ -120,12 +121,11 @@ class App(QWidget):
                 background-color: #2E7D32;
             }
         ''')
-
         # Set the cursor to a pointer when hovering the button
         button4.setCursor(Qt.PointingHandCursor)
-
         # Connect the button to the function that generates the statistics
         button4.clicked.connect(self.qa_stats_proponisi_click)
+
 
         button5 = QPushButton('Send Quality Assurance', self)
         button5.setToolTip('Import quality assurance')
@@ -143,15 +143,13 @@ class App(QWidget):
                 background-color: #2E7D32;
             }
         ''')
-
         # Set the cursor to a pointer when hovering the button
         button5.setCursor(Qt.PointingHandCursor)
-
         # Disable the button
         button5.setEnabled(False)
-
         # Connect the button to the function that sends quality assurance
         button5.clicked.connect(self.send_quality_assurance_click)
+
 
         button6 = QPushButton('Proponisi Perfect Attendance', self)
         button6.setToolTip('Mark Pefect Attendance on Proponisi File')
@@ -169,12 +167,11 @@ class App(QWidget):
                 background-color: #2E7D32;
             }
         ''')
-
         # Set the cursor to a pointer when hovering the button
         button6.setCursor(Qt.PointingHandCursor)
-
         # Connect the button to the function that sends quality assurance
         button6.clicked.connect(self.mark_perfect_attedance_proponisi)
+
 
         button7 = QPushButton('Proponisi Profiles', self)
         button7.setToolTip('Creates Proponisi Profiles')
@@ -194,9 +191,9 @@ class App(QWidget):
         ''')
         # Set the cursor to a pointer when hovering the button
         button7.setCursor(Qt.PointingHandCursor)
-
         # Connect the button to the function that sends quality assurance
         button7.clicked.connect(self.create_proponisi_profiles)
+
 
         button8 = QPushButton('Time Per Queues', self)
         button8.setToolTip('Calculates Time Spent on Specific Queues')
@@ -214,12 +211,11 @@ class App(QWidget):
                 background-color: #2E7D32;
             }
         ''')
-
         # Set the cursor to a pointer when hovering the button
         button8.setCursor(Qt.PointingHandCursor)
-
         # Connect the button to the function that sends quality assurance
         button8.clicked.connect(self.calculate_time_on_queues)
+
 
         button9 = QPushButton('Update Proponisi Profiles', self)
         button9.setToolTip('Update Proponisi Profiles')
@@ -237,13 +233,10 @@ class App(QWidget):
                 background-color: #2E7D32;
             }
         ''')
-
         # Set the cursor to a pointer when hovering the button
         button9.setCursor(Qt.PointingHandCursor)
-
         # Connect the button to the function that sends quality assurance
         button9.clicked.connect(self.update_proponisi_profiles)
-
 
 
         button10 = QPushButton('Attendance Competition', self)
@@ -262,12 +255,11 @@ class App(QWidget):
                 background-color: #2E7D32;
             }
         ''')
-
         # Set the cursor to a pointer when hovering the button
         button10.setCursor(Qt.PointingHandCursor)
-
         # Connect the button to the function that sends quality assurance
         button10.clicked.connect(self.on_click_attendance_competition)
+
 
         button11 = QPushButton('Bulk Email Stringify', self)
         button11.setToolTip('Creates string of emails to send bulk emails for Survey & fixes any errors in the email.')
@@ -285,12 +277,11 @@ class App(QWidget):
                 background-color: #2E7D32;
             }
         ''')
-
         # Set the cursor to a pointer when hovering the button
         button11.setCursor(Qt.PointingHandCursor)
-
         # Connect the button to the function that sends quality assurance
         button11.clicked.connect(self.on_click_stringify_emails)
+
 
         button12 = QPushButton('Survey Assigner', self)
         button12.setToolTip('Assigns an equal amount of Surveys to agents by Color')
@@ -308,16 +299,10 @@ class App(QWidget):
                 background-color: #2E7D32;
             }
         ''')
-
         # Set the cursor to a pointer when hovering the button
         button12.setCursor(Qt.PointingHandCursor)
-
         # Connect the button to the function that sends quality assurance
         button12.clicked.connect(self.assign_surveys_click)
-
-
-
-
 
 
         button13 = QPushButton('SBS Generator', self)
@@ -336,12 +321,78 @@ class App(QWidget):
                 background-color: #2E7D32;
             }
         ''')
-
         # Set the cursor to a pointer when hovering the button
         button13.setCursor(Qt.PointingHandCursor)
-
         # Connect the button to the function that sends quality assurance
         button13.clicked.connect(self.sbs_generator_click)
+
+
+        button14 = QPushButton('Reset IE to Defaults', self)
+        button14.setToolTip('Reset IE to Defaults')
+        button14.setStyleSheet('''
+            QPushButton {
+                background-color: #4CAF50;
+                color: white;
+                border-radius: 10px;
+                font-size: 16px;
+            }
+            QPushButton:hover {
+                background-color: #F4B942;
+            }
+            QPushButton:pressed {
+                background-color: #2E7D32;
+            }
+        ''')
+        # Set the cursor to a pointer when hovering the button
+        button14.setCursor(Qt.PointingHandCursor)
+        # Connect the button to the function that sends quality assurance
+        button14.clicked.connect(self.reset_IE_to_defaults_click)
+
+
+        button15 = QPushButton('GP Update', self)
+        button15.setToolTip('GP Update')
+        button15.setStyleSheet('''
+            QPushButton {
+                background-color: #4CAF50;
+                color: white;
+                border-radius: 10px;
+                font-size: 16px;
+            }
+            QPushButton:hover {
+                background-color: #F4B942;
+            }
+            QPushButton:pressed {
+                background-color: #2E7D32;
+            }
+        ''')
+        # Set the cursor to a pointer when hovering the button
+        button15.setCursor(Qt.PointingHandCursor)
+        # Connect the button to the function that sends quality assurance
+        button15.clicked.connect(self.gp_update_click)
+
+
+        button16 = QPushButton('Look Ups', self)
+        button16.setToolTip('Look Ups')
+        button16.setStyleSheet('''
+            QPushButton {
+                background-color: #4CAF50;
+                color: white;
+                border-radius: 10px;
+                font-size: 16px;
+            }
+            QPushButton:hover {
+                background-color: #F4B942;
+            }
+            QPushButton:pressed {
+                background-color: #2E7D32;
+            }
+        ''')
+
+        # Set the cursor to a pointer when hovering the button
+        button16.setCursor(Qt.PointingHandCursor)
+        # Connect the button to the function that sends quality assurance
+        button16.clicked.connect(self.encrypt_decrypt_click)
+
 
         # Create a QTextEdit for output
         self.output_text = QTextEdit()
@@ -366,11 +417,15 @@ class App(QWidget):
         layout.addWidget(button11)
         layout.addWidget(button12)
         layout.addWidget(button13)
+        layout.addWidget(button14)
+        layout.addWidget(button15)
+        layout.addWidget(button16)
         layout.addWidget(self.output_text)
 
         self.setLayout(layout)
         self.show()
 
+    # function that runs to get data from the user
     def get_date(self, QlableText):
         dialog = QDialog()
         dialog.setWindowTitle("Enter Date")
@@ -380,7 +435,6 @@ class App(QWidget):
         line_edit = QLineEdit(dialog)
         button_box = QDialogButtonBox(
             QDialogButtonBox.Ok | QDialogButtonBox.Cancel, dialog)
-
         layout = QVBoxLayout(dialog)
         layout.addWidget(label)
         layout.addWidget(line_edit)
@@ -396,6 +450,7 @@ class App(QWidget):
         else:
             return None
 
+    # function that runs to get data from the user to send QA to
     def get_email(self):
         dialog = QDialog()
         dialog.setWindowTitle("Enter Email to Receive QAs")
@@ -405,7 +460,6 @@ class App(QWidget):
         line_edit = QLineEdit(dialog)
         button_box = QDialogButtonBox(
             QDialogButtonBox.Ok | QDialogButtonBox.Cancel, dialog)
-
         layout = QVBoxLayout(dialog)
         layout.addWidget(label)
         layout.addWidget(line_edit)
@@ -430,7 +484,6 @@ class App(QWidget):
         line_edit = QLineEdit(dialog)
         button_box = QDialogButtonBox(
             QDialogButtonBox.Ok | QDialogButtonBox.Cancel, dialog)
-
         layout = QVBoxLayout(dialog)
         layout.addWidget(label)
         layout.addWidget(line_edit)
@@ -456,7 +509,6 @@ class App(QWidget):
         line_edit = QLineEdit(dialog)
         button_box = QDialogButtonBox(
             QDialogButtonBox.Ok | QDialogButtonBox.Cancel, dialog)
-
         layout = QVBoxLayout(dialog)
         layout.addWidget(label)
         layout.addWidget(line_edit)
@@ -473,6 +525,7 @@ class App(QWidget):
             self.output_text.append('No Location Entered')
             return None
 
+    # simple function to get password
     def get_password(self):
         dialog = QDialog()
         dialog.setWindowTitle("Provide Key")
@@ -482,7 +535,6 @@ class App(QWidget):
         line_edit.setEchoMode(QLineEdit.Password)  # Hide the entered text
         button_box = QDialogButtonBox(
             QDialogButtonBox.Ok | QDialogButtonBox.Cancel, dialog)
-
         layout = QVBoxLayout(dialog)
         layout.addWidget(label)
         layout.addWidget(line_edit)
@@ -500,12 +552,69 @@ class App(QWidget):
             return None
 
 
-    # this will be used to get Location
+    # this will be used to get a team
     def get_team(self):
         dialog = QDialog()
         dialog.setWindowTitle("Enter Team (Optional)")
 
         label = QLabel("Enter Team (Optional)", dialog)
+        line_edit = QLineEdit(dialog)
+        button_box = QDialogButtonBox(
+            QDialogButtonBox.Ok | QDialogButtonBox.Cancel, dialog)
+        layout = QVBoxLayout(dialog)
+        layout.addWidget(label)
+        layout.addWidget(line_edit)
+        layout.addWidget(button_box)
+
+        button_box.accepted.connect(dialog.accept)
+        button_box.rejected.connect(dialog.reject)
+
+        result = dialog.exec_()
+
+        if result == QDialog.Accepted:
+            return line_edit.text()
+        else:
+            self.output_text.append('No Team Entered')
+            return None
+        
+    # click to encrypt file for ROV look up
+    def encrypt_decrypt_click(self):
+        import encrypting
+
+        # ask for password
+        password = self.get_password()
+
+        if password != self.key:
+            self.append_output("Invalid Key\n")
+            return 
+        else:
+            self.append_output("Access Granted\n")
+
+        # Ask user to select survey file
+        file_dialog = QFileDialog()
+        file_dialog.setFileMode(QFileDialog.ExistingFile)
+
+        file_path, _ = file_dialog.getOpenFileName(
+            self, "Select CSV File", "", "XLSX Files (*.xlsx);;XLS Files (*.xls);;CSV Files (*.csv);;All Files (*)"
+        )
+
+        if not file_path:
+            self.append_output("File not selected. Process Cancelled.\n")
+            return
+        
+        try:
+            encrypting.main_func_encrypt(file_path=file_path, key=self.key2_crypto)
+            self.append_output("Success.\n")
+        except Exception as e:
+            self.append_output("Error:")
+            self.append_output(f'{str(e)}\n')
+
+    # to reset internet explorer to defaults
+    def get_times_to_reset(self):
+        dialog = QDialog()
+        dialog.setWindowTitle("Enter Number of Times to Reset (1 = 1, 0 = 10 hours)")
+
+        label = QLabel("Enter Number of Times to Reset (1 = 1, 0 = 10 hours)", dialog)
         line_edit = QLineEdit(dialog)
         button_box = QDialogButtonBox(
             QDialogButtonBox.Ok | QDialogButtonBox.Cancel, dialog)
@@ -523,9 +632,72 @@ class App(QWidget):
         if result == QDialog.Accepted:
             return line_edit.text()
         else:
-            self.output_text.append('No Team Entered')
+            self.output_text.append('No Number of times to reset Entered')
             return None
         
+    # reapplies all policy settings
+    def gp_update_click(self):
+        import subprocess
+
+        # ask for password
+        password = self.get_password()
+
+        if password != self.key:
+            self.append_output("Invalid Key\n")
+            return 
+        else:
+            self.append_output("Access Granted\n")
+
+        try:
+            # Run the gpupdate command
+            # /force reapplies all policy settings
+            subprocess.run('gpupdate /force', shell=True, check=True)
+            self.append_output("Group Policy Update executed successfully.\n")
+        except subprocess.CalledProcessError as e:
+            print(f"An error occurred: {e}")
+            self.append_output(f"An error occurred: {e}\n")
+        
+    # reset internet explorer to defaults
+    def reset_IE_to_defaults_click(self):
+        import reset_proxy
+        import time
+
+        # ask for password
+        password = self.get_password()
+
+        if password != self.key:
+            self.append_output("Invalid Key\n")
+            return 
+        else:
+            self.append_output("Access Granted\n")
+
+        # get number of times to reset 1 = 1, 0 = 10 hours
+        times_to_reset = self.get_times_to_reset()
+
+        if not times_to_reset:
+            self.append_output("No Times to Reset Entered, Process Cancelled.\n")
+            return
+        
+        if times_to_reset == '1':
+            self.append_output("Times to Reset: 1\n")
+            reset_proxy.reset_IE_to_defaults()
+            self.append_output("Success, IE Reset.\n")
+
+        elif times_to_reset == '0':
+            try:
+                # Calculate the time when the script should stop running (10 hours from now)
+                end_time = time.time() + 10*60*60  # 10 hours in seconds
+                # Run the function every 5 minutes until the end time is reached
+                while time.time() < end_time:
+                    reset_proxy.reset_IE_to_defaults()
+                    print(f"Waiting 5 minutes before the next reset at {time.ctime(time.time() + 5*60)}.")
+                    time.sleep(5*60)  # Wait for 5 minutes (300 seconds)
+                    self.append_output("Success, IE Reset.\n")
+            except Exception as e:
+                self.append_output("Error with IE Reset:")
+                self.append_output(f'{str(e)}\n')
+        
+    # generates SBS
     def sbs_generator_click(self):
         import sbs_generator
         
@@ -569,6 +741,7 @@ class App(QWidget):
 
         return
         
+    # Assigns surveys to agents
     def assign_surveys_click(self):
         import survey_assignments
 
@@ -616,7 +789,7 @@ class App(QWidget):
             self.append_output(f'{str(e)}\n')
 
 
-    # this will be used to get emails
+    # This will collect the names of the agents who will work on the surveys
     def get_agents_for_surveys(self):
         dialog = QDialog()
         dialog.setWindowTitle("Enter Agents for Survey")
@@ -640,7 +813,7 @@ class App(QWidget):
             return text_edit.toPlainText()  # Return the input text if Ok is pressed
         return None
         
-    # this will be used to get emails
+    # this will be used to get emails to stringify
     def get_emails_to_stringify(self):
         dialog = QDialog()
         dialog.setWindowTitle("Enter Emails to Stringify")
@@ -663,7 +836,8 @@ class App(QWidget):
         if result == QDialog.Accepted:
             return text_edit.toPlainText()  # Return the input text if Ok is pressed
         return None
-        
+
+    # this will stringify emails 
     def on_click_stringify_emails(self):
         import bulkEmailStringCreator
 
@@ -753,7 +927,7 @@ class App(QWidget):
             self.append_output("Error Attendance Competition:")
             self.append_output(f'{str(e)}\n')
 
-    # this will generate daily, weekly, monthly or yearly stats given xlsx or xlx file
+    # this will generate daily, weekly, monthly or yearly stats given xlsx or xls file
     def on_click_stats(self):
         import statsXLS
 
@@ -842,7 +1016,6 @@ class App(QWidget):
             self.append_output(f'{str(e)}\n')
 
     # Run time_on_phone.py to calculate time on queues
-
     def calculate_time_on_queues(self):
         import time_on_phone
 
@@ -963,9 +1136,11 @@ class App(QWidget):
             self.append_output("Error Profiles .txt and .xlsx created.")
             self.append_output(f'{str(e)}\n')
 
+    # function to append output to the QTextEdit
     def append_output(self, text):
         self.output_text.append(text)
 
+    # will orginize the none work codes report
     def non_work_report_click(self):
         from NonWorkCodes import run_report
 
@@ -990,6 +1165,7 @@ class App(QWidget):
         except Exception as e:
             self.append_output(f'{str(e)}\n')
 
+    # will run main proponisi report
     def proponisi_report_click(self):
         import proponisi
 
@@ -1020,6 +1196,7 @@ class App(QWidget):
             self.append_output('Error Running Proponisi Daily Report.')
             self.append_output(f'{str(e)}\n')
 
+    # add qa to proponisi report
     def qa_stats_proponisi_click(self):
         import proponisiQA
 
@@ -1090,6 +1267,7 @@ class App(QWidget):
 
         return
 
+    # report to send quality assurance
     def send_quality_assurance_click(self):
         import QA
 

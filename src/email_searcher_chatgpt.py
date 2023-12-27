@@ -8,6 +8,7 @@ from datetime import datetime
 import email_config
 import send_email_function
 from gpt_email_responder import call_gpt_api
+import chardet
 
 # Set up logging
 log_filename = "chatgptAssistant.log"
@@ -68,8 +69,15 @@ for email_id in email_ids:
             else:
                 email_body = email_message.get_payload(decode=True)  # decode
 
-            # Decode the body from quoted-printable to utf-8
-            email_body = quopri.decodestring(email_body).decode('utf-8')
+
+            content_type = email_message.get('Content-Type', '')
+            match = re.search(r'charset="([^"]+)"', content_type)
+            if match:
+                encoding = match.group(1)
+            else:
+                encoding = chardet.detect(email_body)['encoding']
+            email_body = quopri.decodestring(email_body).decode(encoding, errors='replace')
+            
 
             # Remove mailto links
             email_body = re.sub(r'<mailto:[^>]*>', '', email_body)
@@ -142,14 +150,14 @@ for email_id in email_ids:
 
             if email_body:
                 try:
-                    send_email_function.send_email(f'ChatGPT-Turbo Response Success', 'lazaro.gonzalez@conduent.com', f'ChatGPT-Turbo {datetime.now()}')
                     send_email_function.send_email(subject, 'lazaro.gonzalez@conduent.com', body)
+                    logging.info("Response: %s", body)
                     logging.info(f'ChatGPT-Turbo, succesful')
                 except Exception as e:
                     error_message = str(e)  # Get the error message as a string
                     traceback_str = traceback.format_exc()  # Get the traceback as a string
                     error_message_with_traceback = f"{error_message}\n\nTraceback:\n{traceback_str}"
-                    send_email_function.send_email(f'ChatGPT-Turbo', 'lazaro.gonzalez@conduent.com', error_message_with_traceback)
+                    send_email_function.send_email(f'ChatGPT-Turbo', 'lazaro.gonzalez@conduent.com', str(error_message_with_traceback))
                     logging.error('ChatGPT-Turbo.', exc_info=True)
             else:
                 send_email_function.send_email(f'No ChatGPT-Turbo Request', 'lazaro.gonzalez@conduent.com', f'ChatGPT-Turbo {datetime.now()}')

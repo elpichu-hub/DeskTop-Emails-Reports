@@ -153,7 +153,8 @@ def send_qa_to_work_email(file_path_1, file_path_2, date_range, email_address, s
                 if total_score >= 85 and total_score < 100:
                     result_string += f"<h3 style='text-decoration:underline;'>\n- {media} {call_number} Recorded on {date_time} Scored <span style='color: green;'>{total_score}%</span></h3>"
                 elif total_score == 100:
-                    image_path_100 = os.path.join(current_dir, 'Perfect2.png')
+                    # image_path_100 = os.path.join(current_dir, 'Perfect2.png')
+                    image_path_100 = 'C:\\MyStuff\\Projects\\Developing\\Tests\\StatsOrginizer\\src\\Perfect2.png'
                     result_string += f"<h3 style='text-decoration:underline;'>\n- {media} {call_number} Recorded on {date_time} Scored <span style='color: green;'>{total_score}%</span> \n</h3>"
                     result_string += "<img src='cid:{}' alt='Passed Image' style='height: 100px; width: 100px'><br>".format(os.path.basename(image_path_100))
                 else:
@@ -175,9 +176,11 @@ def send_qa_to_work_email(file_path_1, file_path_2, date_range, email_address, s
         # Body for email
         current_dir = os.getcwd()
         if average_score >= 85:
-            image_path = os.path.join(current_dir, 'Passed.png')
+            # image_path = os.path.join(current_dir, 'Passed.png')
+            image_path = 'C:\\MyStuff\\Projects\\Developing\\Tests\\StatsOrginizer\\src\\passed.png'
         else:
-            image_path = os.path.join(current_dir, 'Failed.jpg')
+            # image_path = os.path.join(current_dir, 'Failed.jpg')
+            image_path = 'C:\\MyStuff\\Projects\\Developing\\Tests\\StatsOrginizer\\src\\failed.jpg'
         body = "<html>" \
                 "<body>" \
                 "<img src='cid:{}' alt='Passed Image' style='width: 120px; height: 120px;'><br>".format(os.path.basename(image_path)) \

@@ -6,7 +6,7 @@ from datetime import datetime
 import email_config
 import os
 
-
+# sets up email sending function to accept attachments
 def send_email(subject, recipient, body, survey_file, surveySOP, cc=None, bcc=None):
     import email_config
     import smtplib
@@ -52,6 +52,7 @@ def send_email(subject, recipient, body, survey_file, surveySOP, cc=None, bcc=No
         smtp.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
         smtp.send_message(message)
 
+# This will create the survey assignments and send the email
 def survey_email_generator(file_path1, email_address, agents_for_survey, throughApp=False):
 
     df = pd.read_excel(file_path1)
@@ -149,6 +150,7 @@ def survey_email_generator(file_path1, email_address, agents_for_survey, through
     modified_file = f'Survey Ticket Assignments {formatted_date}.xlsx'
     book.save(modified_file)
 
+    # if throughApp == False: then means it's through email prepares the email
     if throughApp == False:
         surveySOP = 'surveySOP.png'
 
@@ -162,8 +164,6 @@ def survey_email_generator(file_path1, email_address, agents_for_survey, through
         else:
             greeting = "Good evening"
 
-        
-
         subject = f'Survey Ticket Assignments {formatted_date}'
         # Add HTML tags
         body = "<html><body>"
@@ -172,7 +172,6 @@ def survey_email_generator(file_path1, email_address, agents_for_survey, through
         result_string = f"<h3>{greeting} Team, <br><br>We kindly request that you complete the assigned surveys by the end of the day. Once you have finished, please notify us through Teams. Your prompt response is greatly appreciated. Thank you for your dedication and efforts. The surveys can be found in the attached Excel file.<br><br> For customers who has scored a two or lower on the Survey and did not request a callback or provide a contact number, we ask that you send us their email information. Kindly note this in their account if possible. Please ensure to include all these customers' email addresses in a single email message to avoid clutter. </h3>"
 
         body += result_string.replace('\n', '<br>')
-
 
         # Add the color information for each agent
         color_info = ""
@@ -186,7 +185,6 @@ def survey_email_generator(file_path1, email_address, agents_for_survey, through
 
         # Add the color information to the email body
         body += color_info
-
 
         # Add signature to the body
         body += email_config.team_lead_elite_signature

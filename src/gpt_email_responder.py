@@ -1,6 +1,9 @@
 import os
 import openai
-openai.api_key = os.getenv("OPENAI_API_KEY")
+import email_config
+# openai.api_key = os.getenv("OPENAI_API_KEY")
+openai.api_key = email_config.OPENAI_API_KEY
+# openai.api_key = 'sk-2ZLc2m4dVc7h4h3tH8ZnqK1m5V7mJZ'
 
 
 def call_gpt_api(content):
@@ -14,3 +17,4 @@ def call_gpt_api(content):
 
     # print(completion.choices[0].message)
     return completion.choices[0].message
+

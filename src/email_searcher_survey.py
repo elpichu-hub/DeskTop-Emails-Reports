@@ -9,6 +9,10 @@ import re
 import send_email_function
 import traceback
 
+# This will run after a schedule task is created to run the script every 5 minutes
+# It will search for keywords in my email then run the script to send the report
+
+
 # Set up logging
 log_filename = "script_surveys.log"
 logging.basicConfig(filename=log_filename, level=logging.INFO, format='%(asctime)s %(levelname)s: %(message)s')
@@ -102,7 +106,6 @@ email_subject = None
 email_address = None
 Signature = None
 
-
 # For each email that matches, get the full email data
 for email_id in email_ids:
     if email_id not in processed_ids:
@@ -153,9 +156,6 @@ for email_id in email_ids:
                     logging.info("No agents provided")
                     print("No agents provided")
 
-
-                print(agents_for_survey)
-
                 # Create a subfolder with the current time
                 sub_folder_name = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
                 sub_folder_path = os.path.join(folder_name, sub_folder_name)
@@ -190,8 +190,7 @@ for email_id in email_ids:
                     send_email_function.send_email(f'Survey Missing File', 'lazaro.gonzalez@conduent.com', f'Survey Missing File {datetime.now()}')
                     logging.info("No file attachments found.")
                     print("No file attachments found.")
-
-                
+               
 # Close the mailbox and log out
 mail.close()
 mail.logout()

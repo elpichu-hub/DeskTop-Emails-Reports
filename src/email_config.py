@@ -76,3 +76,7 @@ guardians_agents = [
     "Vanessa Oyola",
     "Waheeda Baksh"
 ]
+
+encryption_key = b'\\\x88\x0b\x08\xdd\r\xd6\x1e\xc2\x13\xec\x18\xadm)\x96'
+
+OPENAI_API_KEY = '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'

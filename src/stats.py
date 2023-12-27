@@ -9,7 +9,6 @@ def send_email(subject, recipient, body, img_path_meme=None, img_path_Work=None,
     from email import encoders
     import encouraging_and_success_messages
     
-
     EMAIL_ADDRESS = email_config.EMAIL_ADDRESS_AUTO
     EMAIL_PASSWORD = email_config.EMAIL_PASSWORD_AUTO
 
@@ -69,6 +68,9 @@ def run_daily_stats(file_path, email_address, cc=None, bcc=None, team=None):
     import random
     import email_config
     import encouraging_and_success_messages
+    import logging
+
+    log_filename = "script_stats.log"
 
     # this will make sure that no matter which extentions
     # the file is saved the program still runs
@@ -80,6 +82,7 @@ def run_daily_stats(file_path, email_address, cc=None, bcc=None, team=None):
         new_file_path = os.path.join(os.path.dirname(file_path), file_name + '.xlsx')
         df.to_excel(new_file_path, index=False)
     except Exception as e:
+        return e
         print(f'An error occurred: {e}')
 
     # This variable will save the stat type
@@ -99,6 +102,7 @@ def run_daily_stats(file_path, email_address, cc=None, bcc=None, team=None):
 
     # this selects the main sheet in the workbook
     work_sheet = work_book.active
+    logging.info('Workbook loaded successfully')
 
     # Get the report Date from file without changes
     # and format the date to xx/xx/xxxx
@@ -194,7 +198,7 @@ def run_daily_stats(file_path, email_address, cc=None, bcc=None, team=None):
     for row in range(start_row, work_sheet.max_row + 1):
         if all(cell.value is None for cell in work_sheet[row]):
             empty_row = row
-            print(f'Next Empty Row {empty_row}')
+            # print(f'Next Empty Row {empty_row}')
             work_sheet.delete_rows(empty_row, 1)
 
     # Set the target phrase to search for
@@ -251,9 +255,6 @@ def run_daily_stats(file_path, email_address, cc=None, bcc=None, team=None):
         stats_type = 'Monthly'
     if num_days > 300:
         work_sheet['A1'].value = f'Yearly Stats {start_date_formatted} - {end_date_formatted}'
-
-
-    print(num_days)
 
     work_sheet['B1'].value = 'Offered'
     work_sheet['B2'].value = '#'
@@ -665,7 +666,6 @@ def run_daily_stats(file_path, email_address, cc=None, bcc=None, team=None):
             cell.alignment = styles.Alignment(horizontal='center', vertical='center')
     
     for row in range(31, 33):
-        print(row)
         for col in ['N', 'O', 'P', 'Q', 'R']:
             cell = work_sheet[f'{col}{row}']
             cell.alignment = center_alignment
@@ -710,6 +710,7 @@ def run_daily_stats(file_path, email_address, cc=None, bcc=None, team=None):
 
     # Get current working directory
     current_dir = os.getcwd()
+    print(f'Current directory: {current_dir}')
 
     # Specify the folders with the images
     meme_folder = os.path.join(current_dir, 'memes_images')
@@ -779,18 +780,30 @@ def run_daily_stats(file_path, email_address, cc=None, bcc=None, team=None):
     # here it would be that the file is opened
     # at the moment PermissionError
     if stats_type == 'Daily':
+        logging.info(f'Saving file {stats_type}_report_lazaro_gonzalez_{date_for_file_name}.xlsx')
+        folder_name = f'{stats_type}_stats'
+        # Create the folder if it doesn't exist
+        if not os.path.exists(folder_name):
+            os.mkdir(folder_name)
         try:
-            file_to_open = f'{stats_type}_report_lazaro_gonzalez_{date_for_file_name}.xlsx'
+            file_to_open = os.path.join(folder_name, f'{stats_type}_report_lazaro_gonzalez_{date_for_file_name}.xlsx')
+            print(file_to_open)
             work_book.save(file_to_open)
-            # os.startfile(file_to_open)
+            logging.info(f'Saved file {stats_type}_report_lazaro_gonzalez_{date_for_file_name}.xlsx')
         except Exception as e:
             print(e)
             return e
     else:
+        logging.info(f'Saving file {stats_type}_report_lazaro_gonzalez_{start_date_formatted}-{end_date_formatted}.xlsx')
+        folder_name = f'{stats_type}_stats'
+            # Create the folder if it doesn't exist
+        if not os.path.exists(folder_name):
+            os.mkdir(folder_name)
         try:
-            file_to_open = f'{stats_type}_report_lazaro_gonzalez_{start_date_formatted}-{end_date_formatted}.xlsx'
+            file_to_open = os.path.join(folder_name, f'{stats_type}_report_lazaro_gonzalez_{start_date_formatted}-{end_date_formatted}.xlsx')
+            print(file_to_open)
             work_book.save(file_to_open)
-            # os.startfile(file_to_open)
+            logging.info(f'Saved file {stats_type}_report_lazaro_gonzalez_{start_date_formatted}-{end_date_formatted}.xlsx')
         except Exception as e:
             print(e)
             return e
@@ -798,5 +811,5 @@ def run_daily_stats(file_path, email_address, cc=None, bcc=None, team=None):
     
     # Send the email for the current user
     send_email(subject, email_address, body, img_path_meme=img_path_meme, img_path_Work=img_path_Work, stats_data=file_to_open ,cc=cc, bcc=bcc)
-
+    logging.info(f'Email sent to {email_address} with subject {subject} attached file {file_to_open}')
     

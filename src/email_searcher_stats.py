@@ -187,12 +187,13 @@ for email_id in email_ids:
                     try:
                         if signature == None:
                             # QA.send_qa_to_work_email(file_paths[1], file_paths[0], date_range, email_address, cc=cc)
-                            stats.run_daily_stats(file_paths[0], email_address, cc=cc, team=team)
-                            send_email_function.send_email(f'Success Stats', 'lazaro.gonzalez@conduent.com', f'Stats Sent Succesfully at {datetime.now()}')
+                            result = stats.run_daily_stats(file_paths[0], email_address, cc=cc, team=team)
+                            logging.info(f"{result} ran.")
+                            send_email_function.send_email(f'Success Stats', email_address, f'Stats Sent Succesfully at {datetime.now()}')
                             logging.info(f'File {file_paths[0]}, email {email_address}, cc {cc}, team {team}')
                         else:
                             # QA.send_qa_to_work_email(file_paths[1], file_paths[0], date_range, email_address, signature, cc=cc)
-                            # stats.run_daily_stats(file_paths[0], )
+                            stats.run_daily_stats(file_paths[0], email_address, signature, cc=cc, team=team)
                             logging.info("ran.")
 
                     except Exception as e:

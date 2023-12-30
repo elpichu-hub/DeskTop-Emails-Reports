@@ -79,4 +79,4 @@ guardians_agents = [
 
 encryption_key = b'\\\x88\x0b\x08\xdd\r\xd6\x1e\xc2\x13\xec\x18\xadm)\x96'
 
-OPENAI_API_KEY = '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'
+OPENAI_API_KEY = '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'

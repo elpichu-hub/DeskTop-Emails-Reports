@@ -1,8 +1,8 @@
-EMAIL_ADDRESS = 'etubrute56@gmail.com'
-EMAIL_PASSWORD = 'prsxyqoxhlodlpis'
+EMAIL_ADDRESS = EMAIL
+EMAIL_PASSWORD = PASSWORD
 
-EMAIL_ADDRESS_AUTO = 'lazarogonzalez.auto@gmail.com'
-EMAIL_PASSWORD_AUTO = 'tstnzfqhhkzrjuxa'
+EMAIL_ADDRESS_AUTO = EMAIL
+EMAIL_PASSWORD_AUTO = PASSWORD
 
 team_lead_elite_signature = """
 <h2 style="margin-top: 30px; margin-bottom: 0;">Thank You,</h2>
@@ -79,4 +79,4 @@ guardians_agents = [
 
 encryption_key = b'\\\x88\x0b\x08\xdd\r\xd6\x1e\xc2\x13\xec\x18\xadm)\x96'
 
-OPENAI_API_KEY = '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'
+OPENAI_API_KEY = KEY

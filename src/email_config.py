@@ -1,8 +1,8 @@
-EMAIL_ADDRESS = 'etubrute56@gmail.com'
-EMAIL_PASSWORD = 'prsxyqoxhlodlpis'
+EMAIL_ADDRESS = 'email@gmail.com'
+EMAIL_PASSWORD = 'password'
 
-EMAIL_ADDRESS_AUTO = 'lazarogonzalez.auto@gmail.com'
-EMAIL_PASSWORD_AUTO = 'tstnzfqhhkzrjuxa'
+EMAIL_ADDRESS_AUTO = 'email'
+EMAIL_PASSWORD_AUTO = 'password'
 
 team_lead_elite_signature = """
 <h2 style="margin-top: 30px; margin-bottom: 0;">Thank You,</h2>
@@ -77,7 +77,7 @@ guardians_agents = [
 
 encryption_key = b'\\\x88\x0b\x08\xdd\r\xd6\x1e\xc2\x13\xec\x18\xadm)\x96'
 
-OPENAI_API_KEY = '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'
+OPENAI_API_KEY = 'key'
 
 my_correspondence_agents = ['Daly, Amani', 'Durroh, James', 'Millard, Silvana', 'Williams, Crystal']
 

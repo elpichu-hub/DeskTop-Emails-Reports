@@ -207,13 +207,13 @@ def create_sbs(file_path, email_address, team, throughEmail=True):
 
 
     team_leads = {
-        'Elite': 'William / Karina / Ernesto',
-        'Gladiators': 'Ura / Daisy / Iqbal',
-        'Marvel': 'Omaira / Johanna / Kathleen',
-        'Legacy': 'Yari / Shaynika / Edgar',
-        'Avatar': 'Lissette / Jose / Mara / Krystal / Natacha',
-        'Hogwarts': 'Farzanna / Jordan / Brittnay / Luis',
-        'Bootcamp': 'Melanie / Daniqua / Edgar / Jose / Jordan / Brittany',
+        'Elite': 'William / Ernesto / Jordan / Darneisha',
+        'Gladiators': 'Ura / Luis / Krystal / Sherry',
+        'Marvel': 'Omaira / Kathleen / Alexis / Natacha',
+        'Legacy': 'Yari / Mayra / Brittnay / Jose',
+        'Avatar': 'Lissette / Mara / Rebeca / Bibi',
+        'Hogwarts': 'Farzanna / Lashanda / Consuelo / Johanna',
+        'Bootcamp': 'Brittney / Daniqua / Sherry / Kathleen / Tomanekia / Lazaro ',
         'N/A': 'N/A'
     }
 

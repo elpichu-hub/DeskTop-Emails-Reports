@@ -55,7 +55,7 @@ def create_bulk_email_string(emails):
             corrected_email_list.append(email)
 
     # Add the three extra email addresses
-    extra_emails = ['lazaro.gonzalez@conduent.com', 'lashanda.hicks@conduent.com', 'mary.rodriguez@conduent.com']
+    extra_emails = ['lazaro.gonzalez@conduent.com', 'mary.rodriguez@conduent.com']
     corrected_email_list.extend(extra_emails)
     
     # Remove duplicates

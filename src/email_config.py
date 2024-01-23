@@ -7,7 +7,7 @@ EMAIL_PASSWORD_AUTO = 'tstnzfqhhkzrjuxa'
 team_lead_elite_signature = """
 <h2 style="margin-top: 30px; margin-bottom: 0;">Thank You,</h2>
 <p style="margin-top: 0; margin-bottom: 0;">Lazaro Gonzalez</p>
-<p style="margin-top: 0; margin-bottom: 0;">Team Lead - Guardians | Web Chat & Escalations</p>
+<p style="margin-top: 0; margin-bottom: 0;">Team Lead - Guardians | Web Chat, Escalations & ERT</p>
 <p style="margin-top: 0; margin-bottom: 0;">Florida SunPass Centralized Customer Service System</p>
 <h2 style="margin-top: 0; margin-bottom: 0;">Conduent</h2>
 <p style="margin-top: 0; margin-bottom: 0;">9405 West Colonial Drive</p>
@@ -60,7 +60,6 @@ guardians_agents = [
     "Jusmanny Anzalota",
     "Kadine Nesbeth",
     "Mariely Melendez",
-    "Michael Jacobson",
     "Ruth Angel",
     "Suleyka Ledesma",
     "Amarillis N Santiago Lopez",
@@ -73,10 +72,12 @@ guardians_agents = [
     "Mayra Torres",
     "Sean Scott",
     "Tieheka T. Clarke",
-    "Vanessa Oyola",
     "Waheeda Baksh"
 ]
 
 encryption_key = b'\\\x88\x0b\x08\xdd\r\xd6\x1e\xc2\x13\xec\x18\xadm)\x96'
 
-OPENAI_API_KEY = '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'
+OPENAI_API_KEY = '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'
+
+my_correspondence_agents = ['Daly, Amani', 'Durroh, James', 'Millard, Silvana', 'Williams, Crystal']
+

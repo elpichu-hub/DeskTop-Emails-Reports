@@ -38,7 +38,7 @@ def run_report(file_path):
     df_filtered[EndDateTime] = pd.to_datetime(df_filtered[EndDateTime])
 
     # filter the dataframe based on the 'StatusKey' column containing any value in the non_work_codes list
-    df_filtered_15_more = df_filtered[(df_filtered[EndDateTime] - df_filtered[StatusDateTime]).dt.seconds >= 300].copy()
+    df_filtered_15_more = df_filtered[(df_filtered[EndDateTime] - df_filtered[StatusDateTime]).dt.seconds >= 30].copy()
 
 
     df_filtered_breaks[StatusDateTime] = pd.to_datetime(df_filtered_breaks[StatusDateTime])

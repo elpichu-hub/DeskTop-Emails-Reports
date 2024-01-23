@@ -349,51 +349,6 @@ class App(QWidget):
         button14.clicked.connect(self.reset_IE_to_defaults_click)
 
 
-        button15 = QPushButton('GP Update', self)
-        button15.setToolTip('GP Update')
-        button15.setStyleSheet('''
-            QPushButton {
-                background-color: #4CAF50;
-                color: white;
-                border-radius: 10px;
-                font-size: 16px;
-            }
-            QPushButton:hover {
-                background-color: #F4B942;
-            }
-            QPushButton:pressed {
-                background-color: #2E7D32;
-            }
-        ''')
-        # Set the cursor to a pointer when hovering the button
-        button15.setCursor(Qt.PointingHandCursor)
-        # Connect the button to the function that sends quality assurance
-        button15.clicked.connect(self.gp_update_click)
-
-
-        button16 = QPushButton('Look Ups', self)
-        button16.setToolTip('Look Ups')
-        button16.setStyleSheet('''
-            QPushButton {
-                background-color: #4CAF50;
-                color: white;
-                border-radius: 10px;
-                font-size: 16px;
-            }
-            QPushButton:hover {
-                background-color: #F4B942;
-            }
-            QPushButton:pressed {
-                background-color: #2E7D32;
-            }
-        ''')
-
-        # Set the cursor to a pointer when hovering the button
-        button16.setCursor(Qt.PointingHandCursor)
-        # Connect the button to the function that sends quality assurance
-        button16.clicked.connect(self.encrypt_decrypt_click)
-
-
         # Create a QTextEdit for output
         self.output_text = QTextEdit()
         self.output_text.setReadOnly(True)
@@ -418,8 +373,6 @@ class App(QWidget):
         layout.addWidget(button12)
         layout.addWidget(button13)
         layout.addWidget(button14)
-        layout.addWidget(button15)
-        layout.addWidget(button16)
         layout.addWidget(self.output_text)
 
         self.setLayout(layout)
@@ -577,38 +530,6 @@ class App(QWidget):
             self.output_text.append('No Team Entered')
             return None
         
-    # click to encrypt file for ROV look up
-    def encrypt_decrypt_click(self):
-        import encrypting
-
-        # ask for password
-        password = self.get_password()
-
-        if password != self.key:
-            self.append_output("Invalid Key\n")
-            return 
-        else:
-            self.append_output("Access Granted\n")
-
-        # Ask user to select survey file
-        file_dialog = QFileDialog()
-        file_dialog.setFileMode(QFileDialog.ExistingFile)
-
-        file_path, _ = file_dialog.getOpenFileName(
-            self, "Select CSV File", "", "XLSX Files (*.xlsx);;XLS Files (*.xls);;CSV Files (*.csv);;All Files (*)"
-        )
-
-        if not file_path:
-            self.append_output("File not selected. Process Cancelled.\n")
-            return
-        
-        try:
-            encrypting.main_func_encrypt(file_path=file_path, key=self.key2_crypto)
-            self.append_output("Success.\n")
-        except Exception as e:
-            self.append_output("Error:")
-            self.append_output(f'{str(e)}\n')
-
     # to reset internet explorer to defaults
     def get_times_to_reset(self):
         dialog = QDialog()
@@ -634,28 +555,6 @@ class App(QWidget):
         else:
             self.output_text.append('No Number of times to reset Entered')
             return None
-        
-    # reapplies all policy settings
-    def gp_update_click(self):
-        import subprocess
-
-        # ask for password
-        password = self.get_password()
-
-        if password != self.key:
-            self.append_output("Invalid Key\n")
-            return 
-        else:
-            self.append_output("Access Granted\n")
-
-        try:
-            # Run the gpupdate command
-            # /force reapplies all policy settings
-            subprocess.run('gpupdate /force', shell=True, check=True)
-            self.append_output("Group Policy Update executed successfully.\n")
-        except subprocess.CalledProcessError as e:
-            print(f"An error occurred: {e}")
-            self.append_output(f"An error occurred: {e}\n")
         
     # reset internet explorer to defaults
     def reset_IE_to_defaults_click(self):
@@ -719,7 +618,7 @@ class App(QWidget):
         file_dialog.setFileMode(QFileDialog.ExistingFile)
 
         file_path, _ = file_dialog.getOpenFileName(
-            self, "Select SBS File", "", "XLSX Files (*.xlsx);;XLS Files (*.xls);;CSV Files (*.csv);;All Files (*)"
+            self, "Select SBS File", "", "CSV Files (*.csv);;XLSX Files (*.xlsx);;XLS Files (*.xls);;All Files (*)"
         )
 
         if not file_path:
